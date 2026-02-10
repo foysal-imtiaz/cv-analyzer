@@ -1,4 +1,4 @@
-import {type FormEvent, useState} from 'react'
+import {type FormEvent, useEffect, useState} from 'react'
 import Navbar from "~/components/Navbar";
 import FileUploader from "~/components/FileUploader";
 import {usePuterStore} from "~/lib/puter";
@@ -10,6 +10,12 @@ import {prepareInstructions} from "../../constants";
 const Upload = () => {
     const { auth, isLoading, fs, ai, kv } = usePuterStore();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!isLoading && !auth.isAuthenticated) {
+            navigate('/auth?next=/upload');
+        }
+    }, [auth.isAuthenticated, isLoading]);
     const [isProcessing, setIsProcessing] = useState(false);
     const [statusText, setStatusText] = useState('');
     const [file, setFile] = useState<File | null>(null);
