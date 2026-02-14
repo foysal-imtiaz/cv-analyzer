@@ -24,7 +24,7 @@ body {
 }
 
 main {
-  @apply min-h-screen pt-10;
+  @apply min-h-screen pt-10 pb-16;
 }
 h1 {
   @apply max-sm:text-[3rem] text-6xl  text-gradient leading-tight xl:tracking-[-2px] font-semibold;
@@ -97,7 +97,11 @@ form {
   }
 
   .navbar {
-    @apply flex flex-row justify-between items-center bg-white rounded-full p-4 w-full px-10 max-w-[1200px] mx-auto;
+    @apply flex flex-row justify-between items-center bg-white rounded-full p-3 sm:p-4 w-full px-6 sm:px-10 max-w-[1200px] mx-auto gap-3;
+  }
+
+  .navbar-button {
+    @apply text-sm px-3 py-2 sm:text-base sm:px-4 sm:py-2 md:px-5;
   }
 
   .score-badge {
